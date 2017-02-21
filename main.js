@@ -1,11 +1,9 @@
 'use strict';
 
 var mainScreenVorpal = require('vorpal')();
-
 var campaignModeVorpal = require('vorpal')();
 var dataModeVorpal = require('vorpal')();
-var wholesaleModeVorpal = require('vorpal')();
-
+var sellModeVorpal = require('vorpal')();
 var inquirer = require('inquirer');
 
 //Print application banner
@@ -16,54 +14,29 @@ function main() {
     entry();
 }
 
-
-//##############Commands for all Modes##########
-//##############################################
-
-//Return Commands
-campaignModeVorpal
-    .command('return', 'Returns to entry point')
-    .action(function(args, cb) {
-        campaignModeVorpal.hide()
-        entry();
-        cb();
-    });
-
-dataModeVorpal
-    .command('return', 'Returns to entry point')
-    .action(function(args, cb) {
-        dataModeVorpal.hide()
-        entry();
-        cb();
-    });
-
-wholesaleModeVorpal
-    .command('return', 'Returns to entry point')
-    .action(function(args, cb) {
-        wholesaleModeVorpal.hide()
-        entry();
-        cb();
-    });
-
-
+//Enter different modes
 function campaignMode(){
     campaignModeVorpal
         .delimiter(campaignModeVorpal.chalk.cyan('campaign-mode~>'))
+        .use(require('./Commands/campaignModeCmds'))
         .show()
 }
 
 function dataMode(){
     dataModeVorpal
         .delimiter(dataModeVorpal.chalk.green('data-mode~>'))
+        .use(require('./Commands/dataModeCmds'))
         .show()
 
 }
 
-function wholeSaleMode(){
-    wholesaleModeVorpal
-        .delimiter(wholesaleModeVorpal.chalk.blue('wholesale-mode~>'))
+function sellMode(){
+    sellModeVorpal
+        .delimiter(sellModeVorpal.chalk.blue('sellMode-mode~>'))
+        .use(require('./Commands/sellModeCmds'))
         .show()
 }
+
 
 //Application Entry point
 function entry() {
@@ -75,7 +48,7 @@ function entry() {
                 choices: [
                     'Campaign Mode',
                     'Data Mode',
-                    'Wholesale Mode',
+                    'Sell Mode',
                     new inquirer.Separator(),
                     'Exit'
                 ]
@@ -85,8 +58,8 @@ function entry() {
                 campaignMode()
             } else if (answer.theme === 'Data Mode') {
                 dataMode()
-            } else if (answer.theme === 'Wholesale Mode') {
-                wholeSaleMode()
+            } else if (answer.theme === 'Sell Mode') {
+                sellMode()
             } else if (answer.theme === 'Exit') {
 
             }
