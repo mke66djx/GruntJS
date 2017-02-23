@@ -6,6 +6,9 @@ var dataModeVorpal = require('vorpal')();
 var sellModeVorpal = require('vorpal')();
 var inquirer = require('inquirer');
 
+var database = new Database(Config);
+
+
 //Print application banner
 function main() {
      mainScreenVorpal.ui.redraw(
@@ -36,7 +39,6 @@ function sellMode(){
         .use(require('./Commands/sellModeCmds'))
         .show()
 }
-
 
 //Application Entry point
 function entry() {
