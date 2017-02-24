@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="GruntJS: Got everything out of main, added stateEng, shared commands and created another mode called homeMode which uses commands in mainScreenModeCmds.js">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Commands/campaignModeCmds.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Commands/dataModeCmds.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Commands/sellModeCmds.js" afterPath="" />
+    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -603,7 +600,7 @@
       <workItem from="1487811521789" duration="271000" />
       <workItem from="1487879620882" duration="2123000" />
       <workItem from="1487881774438" duration="12152000" />
-      <workItem from="1487901349454" duration="341000" />
+      <workItem from="1487901349454" duration="441000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -619,11 +616,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487811688118</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="GruntJS: Removed some files &amp; directories">
+      <created>1487901786687</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487901786687</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47915000" />
+    <option name="totallyTimeSpent" value="48015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="410" y="115" width="1442" height="775" extended-state="0" />
@@ -722,7 +726,8 @@
     <MESSAGE value="GruntJS: Separated  mode commands into mode command modules" />
     <MESSAGE value="GruntJS: Experimenting with config files and further project structuring" />
     <MESSAGE value="GruntJS: Got everything out of main, added stateEng, shared commands and created another mode called homeMode which uses commands in mainScreenModeCmds.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Got everything out of main, added stateEng, shared commands and created another mode called homeMode which uses commands in mainScreenModeCmds.js" />
+    <MESSAGE value="GruntJS: Removed some files &amp; directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Removed some files &amp; directories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
