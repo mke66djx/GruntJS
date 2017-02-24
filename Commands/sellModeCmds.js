@@ -1,8 +1,10 @@
 module.exports = function(vorpal, options) {
-    vorpal
-        .command('return', 'Returns to entry point')
-        .action(function(args, cb){
-            this.hide()
-            cb();
-        });
+    // vorpal
+    //     .command('hello', 'says hello')
+    //     .action(function(args, cb){
+    //         this.hide()
+    //         cb();
+    //     });
+
+
 }
