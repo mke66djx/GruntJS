@@ -8,37 +8,35 @@ var sellModeVorpal = require('vorpal')();
 var inquirer = require('inquirer');
 
 
-
-
-//##################Initialization#########################//
+var init = function(configItems) {
 
 //Initialize and place in mainScreenMode
-mainScreenVorpal.ui.redraw(
-    ('\n')+ mainScreenVorpal.chalk.bgBlue('~~~~~~~~~~~~~~~~~ Grunt')+mainScreenVorpal.chalk.bgGreen('JS ~~~~~~~~~~~~~~~~~~~~') + ('\n'));
+    mainScreenVorpal.ui.redraw(
+        ('\n') + mainScreenVorpal.chalk.bgBlue('~~~~~~~~~~~~~~~~~ Grunt') + mainScreenVorpal.chalk.bgGreen('JS ~~~~~~~~~~~~~~~~~~~~') + ('\n'));
 
 //Default power up mode
-mainScreenVorpal
-    .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
-    .use(require('./commands/campaignModeCmds'))
-    .use(require('./commands/sharedCmds'))
-    .show()
+    mainScreenVorpal
+        .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
+        .use(require('./commands/campaignModeCmds'))
+        .use(require('./commands/sharedCmds'))
+        .show()
 
-campaignModeVorpal
-    .delimiter(campaignModeVorpal.chalk.cyan('campaign-mode~>'))
-    .use(require('./Commands/campaignModeCmds'))
-    .use(require('./Commands/sharedCmds'))
+    campaignModeVorpal
+        .delimiter(campaignModeVorpal.chalk.cyan('campaign-mode~>'))
+        .use(require('./Commands/campaignModeCmds'))
+        .use(require('./Commands/sharedCmds'))
 
-dataModeVorpal
-    .delimiter(dataModeVorpal.chalk.green('data-mode~>'))
-    .use(require('./Commands/dataModeCmds'))
-    .use(require('./Commands/sharedCmds'))
+    dataModeVorpal
+        .delimiter(dataModeVorpal.chalk.green('data-mode~>'))
+        .use(require('./Commands/dataModeCmds'))
+        .use(require('./Commands/sharedCmds'))
 
-sellModeVorpal
-    .delimiter(sellModeVorpal.chalk.blue('sellMode-mode~>'))
-    .use(require('./Commands/sellModeCmds'))
-    .use(require('./Commands/sharedCmds'))
+    sellModeVorpal
+        .delimiter(sellModeVorpal.chalk.blue('sellMode-mode~>'))
+        .use(require('./Commands/sellModeCmds'))
+        .use(require('./Commands/sharedCmds'))
 
-
+};
 
 //######################Functions##########################//
 
@@ -67,6 +65,7 @@ var enterMode = function(mode) {
 
 
 //Export all public members
+module.exports.init = init;
 module.exports.enterMode = enterMode;
 
 

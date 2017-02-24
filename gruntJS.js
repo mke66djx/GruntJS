@@ -3,7 +3,7 @@ var stateEngine = require('./stateEng');
 
 
 function main() {
-
+    stateEngine.init('ConfigItems');
 
 }
 
