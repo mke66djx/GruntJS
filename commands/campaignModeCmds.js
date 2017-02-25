@@ -1,8 +1,9 @@
 module.exports = function(vorpal, options) {
-    // vorpal
-    //     .command('return', 'Returns to entry point')
-    //     .action(function(args, cb){
-    //         this.hide()
-    //         cb();
-    //     });
+    vorpal
+        .command('hello <type>', 'says hello')
+        .autocomplete(['there','guy', 'you'])
+        .action(function(args, cb){
+            console.log("hello")
+            cb();
+        });
 }

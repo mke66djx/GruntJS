@@ -6,6 +6,7 @@ module.exports = function(vorpal, options) {
         .autocomplete(['homeMode','campaignMode', 'dataMode', 'sellMode',])
         .action(function(args, cb){
             stateEngine.enterMode(args.state_mode);
+            console.log('HEllo!!')
             cb();
         });
 

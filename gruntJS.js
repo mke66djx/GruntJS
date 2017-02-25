@@ -1,9 +1,8 @@
 'use strict';
 var stateEngine = require('./stateEng');
 
-
 function main() {
-    stateEngine.init('ConfigItems');
+    stateEngine.init();
 
 }
 

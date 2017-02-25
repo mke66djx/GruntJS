@@ -1,0 +1,25 @@
+{
+  "HomeMode": {
+    "directoryConfig": {
+      "main_directory": "./work_spaces/home"
+    }
+  },
+  "CampaignMode": {
+    "directoryConfig": {
+      "main_directory": "./work_spaces/campaign"
+    }
+  },
+  "DataMode": {
+    "directoryConfig": {
+      "main_directory": "./work_spaces/data"
+    }
+
+  },
+  "SellMode": {
+    "directoryConfig": {
+      "main_directory": "./work_spaces/sell"
+    }
+
+  }
+
+}
