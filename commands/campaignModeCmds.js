@@ -1,9 +1,7 @@
 module.exports = function(vorpal, options) {
     vorpal
-        .command('hello <type>', 'says hello')
-        .autocomplete(['there','guy', 'you'])
+        .command('helloSirrrr <type>', 'says hello')
         .action(function(args, cb){
-            console.log("hello")
             cb();
         });
 }
