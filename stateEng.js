@@ -42,8 +42,7 @@ function returnWorkingDir(){
 //####################Cash Functions####################
 function cashLs(parameter){
     //return cash.ls([parameter],{l: true, all: true, humanreadable: true});
-    console.log('ls'+ parameter);
-    return cash('ls' + parameter);
+    return cash(parameter);
 }
 
 //Does not change working direcotry, only changing mode can change it
@@ -68,7 +67,6 @@ var init = function() {
     //Initiate all vorpal instances to use their own set of commands
     mainScreenVorpal
         .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
-        .use(require(__dirname + '/commands/campaignModeCmds'))
         .use(require(__dirname + '/commands/sharedCmds'))
         .show();
 

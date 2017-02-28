@@ -3,6 +3,15 @@ var cash = require('cash');
 
 module.exports = function(vorpal, options) {
 
+
+    //Various shell commands for basic navigation
+    vorpal
+        .command('clear', 'Unix clear command')
+        .action(function(args, cb){
+            this.log('\u001b[2J\u001b[0;0H\n');
+            cb();
+        });
+
     vorpal
         .command('pwd', 'Unix pwd command')
         .action(function(args, cb){
@@ -19,19 +28,20 @@ module.exports = function(vorpal, options) {
         });
 
     vorpal
-        .command('ls [parameterss]', 'Unix ls shell cmd')
+        .command('ls [parameters]', 'Unix ls shell cmd')
         .action(function(args, cb){
-            console.log(args)
-            console.log("args.parameterss");
-            // if(args.length >=1){
-            //     lsOut = stateEngine.cashLs(args.parameterss);
-            // }
-            // else
-            //     lsOut = stateEngine.cashLs(' ');
-            //this.log(lsOut);
+            if(args.parameters)
+            {
+                lsOut = stateEngine.cashLs("ls -"+args.parameters);
+            }
+            else
+                lsOut = stateEngine.cashLs('ls');
+            this.log(lsOut);
             cb();
         });
 
+
+    //Enter given user mode
     vorpal
         .command('enter <state_mode>', 'Enters a user mode')
         .autocomplete(['homeMode','campaignMode', 'dataMode', 'sellMode',])
