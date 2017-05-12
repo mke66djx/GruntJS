@@ -6,6 +6,9 @@ const Vorpal = require('vorpal');
 const inquirer = require('inquirer');
 var config = require('config');
 var process = require('process');
+var printer = require("printer")
+var util = require('util');
+
 
 const mainScreenVorpal = new Vorpal();
 const campaignModeVorpal = new Vorpal();
@@ -128,6 +131,9 @@ module.exports.changeWorkingDir = changeWorkingDir;
 module.exports.cashLs = cashLs;
 module.exports.cashCd = cashCd;
 module.exports.cashPwd = cashPwd;
+module.exports.util= util;
+module.exports.printer= printer;
+
 
 
 
