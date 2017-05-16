@@ -18,9 +18,14 @@ const campaignModeVorpal = new Vorpal();
 const dataModeVorpal =  new Vorpal();
 const sellModeVorpal = new Vorpal();
 
+// const mainScreenVorpal =  Vorpal();
+// const campaignModeVorpal =  Vorpal();
+// const dataModeVorpal =   Vorpal();
+// const sellModeVorpal =  Vorpal();
+
 var cash = require('cash');
 var working_dir;
-var county;
+var county = -1;
 
 //#################Private Functions####################
 function changeWorkingDir(directory){
@@ -64,34 +69,36 @@ function cashPwd(){
 
 //Initialize and place in mainScreenMode
 var init = function() {
-
-    county = 'Sacramento';
-    changeCounty(county);
+    changeCounty(configCounties[0].County);
     mainScreenVorpal.ui.redraw(
         ('\n') + mainScreenVorpal.chalk.bgBlue('~~~~~~~~~~~~~~~~~ Grunt') + mainScreenVorpal.chalk.bgGreen('JS ~~~~~~~~~~~~~~~~~~~~') + ('\n'));
     changeWorkingDir(appendGlobalWorkDir(config.get('HomeMode.directoryConfig.main_directory')));
-    mainScreenVorpal.log(mainScreenVorpal.chalk.green(county + " County") + ('\n'));
+    mainScreenVorpal.log(mainScreenVorpal.chalk.green(capitalizeFirstLetter(county) + " County") + ('\n'));
 
     //Initiate all vorpal instances to use their own set of commands
     mainScreenVorpal
         .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
         .use(require(appendGlobalWorkDir(config.get('HomeMode.directoryConfig.commandFilePath'))))
         .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
+        .history('main-History')
         .show();
 
     campaignModeVorpal
         .use(require(appendGlobalWorkDir(config.get('CampaignMode.directoryConfig.commandFilePath'))))
         .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
+        .history('campaign-History')
         .show();
 
     dataModeVorpal
         .use(require(appendGlobalWorkDir(config.get('DataMode.directoryConfig.commandFilePath'))))
         .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
+        .history('data-History')
         .show();
 
     sellModeVorpal
         .use(require(appendGlobalWorkDir(config.get('SellMode.directoryConfig.commandFilePath'))))
         .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
+        .history('sell-History')
         .show();
 
 };
@@ -152,11 +159,17 @@ var getCounty = function() {
     return county;
 };
 
+var capitalizeFirstLetter = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+
 //Export all public members
 module.exports.init = init;
 module.exports.enterMode = enterMode;
 module.exports.returnWorkingDir = returnWorkingDir;
 module.exports.changeWorkingDir = changeWorkingDir;
+module.exports.cash = cash;
 module.exports.cashLs = cashLs;
 module.exports.cashCd = cashCd;
 module.exports.cashPwd = cashPwd;
@@ -164,7 +177,8 @@ module.exports.util= util;
 module.exports.printer= printer;
 module.exports.config= config;
 module.exports.changeCounty = changeCounty;
-module.exports.getCounty = getCounty
+module.exports.getCounty = getCounty;
+module.exports.capitalizeFirstLetter = capitalizeFirstLetter;
 
 
 

@@ -28,21 +28,17 @@
 //     .show();
 
 const Vorpal = require('vorpal');
-const chalk = Vorpal().chalk;
+//const cash = require('cash')();
 
-const use = require('cash')();
 
-const unicorns = Vorpal()
-    .delimiter('node~$')
-    .use(use)
+const unicorns = new Vorpal()
+    .delimiter('uni~$')
+    //.use(cash)
+    .use()
     .show();
 
-
-
-
-
-unicorns
+const chalk = new Vorpal()
+     .use()
     .show();
 
-console.log('\u001b[2J\u001b[0;0H');
 
