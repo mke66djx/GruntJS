@@ -1,25 +1,38 @@
 {
   "HomeMode": {
     "directoryConfig": {
-      "main_directory": "/work_spaces/home"
+      "main_directory": "/work_spaces/home",
+      "commandFilePath": "/commands/homeModeCmds"
     }
   },
+
   "CampaignMode": {
     "directoryConfig": {
-      "main_directory": "/work_spaces/campaign"
+      "main_directory": "/work_spaces/campaign",
+      "commandFilePath": "/commands/campaignModeCmds"
     }
   },
+
   "DataMode": {
     "directoryConfig": {
-      "main_directory": "/work_spaces/data"
+      "main_directory": "/work_spaces/data",
+      "commandFilePath": "/commands/dataModeCmds",
+      "script_template_directory": "/scriptTemplates",
+      "standalone_lists_directory": "/standaloneLists"
+
     }
 
   },
+
   "SellMode": {
     "directoryConfig": {
-      "main_directory": "/work_spaces/sell"
+      "main_directory": "/work_spaces/sell",
+      "commandFilePath": "/commands/sellModeCmds"
     }
+  },
 
+  "sharedCommands": {
+    "commandFilePath": "/commands/sharedCmds"
   }
 
 }

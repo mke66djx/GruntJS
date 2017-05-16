@@ -50,6 +50,24 @@ module.exports = function(vorpal, options) {
         });
 
 
+    vorpal
+        .command('county <county>', 'User provides -County- to localize file search scope')
+        .action(function(args, cb){
+
+            stateEngine.changeCounty(args.county);
+
+            cb();
+        });
+
+
+    vorpal
+        .command('getCounty', 'Get active county')
+        .action(function(args, cb){
+            county = stateEngine.getCounty();
+            this.log(county + " County");
+            cb();
+        });
+
 
 
 

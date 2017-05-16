@@ -1,0 +1,10 @@
+{
+  "dataConfig": {
+    "ScriptConfigs": {
+      "scriptConfigFile": "/work_spaces/home"
+    },
+    "standaloneListConfigs":{
+      "standaloneListDir": "/work_spaces/home"
+    }
+  }
+}

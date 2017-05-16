@@ -17,6 +17,7 @@ db.serialize(function() {
 
     var stmt = db.prepare("INSERT INTO Stuff VALUES (?)");
 
+
 //Insert random data
     var rnd;
     for (var i = 0; i < 10; i++) {
