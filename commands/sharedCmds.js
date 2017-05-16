@@ -1,5 +1,4 @@
 var stateEngine = require('../stateEng');
-var cash = require('cash');
 
 module.exports = function(vorpal, options) {
 
