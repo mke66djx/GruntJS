@@ -1,6 +1,5 @@
 var stateEngine = require('../stateEng');
 
-
 module.exports = function(vorpal, options) {
 
 
@@ -37,14 +36,6 @@ module.exports = function(vorpal, options) {
             else
                 lsOut = stateEngine.cashLs('ls');
             this.log(lsOut);
-            cb();
-        });
-
-
-    vorpal
-        .command('lsPrinters', 'List all printers on this machine')
-        .action(function(args, cb){
-            console.log("installed printers:\n"+stateEngine.util.inspect(stateEngine.printer.getPrinters(), {colors:true, depth:10}));
             cb();
         });
 
