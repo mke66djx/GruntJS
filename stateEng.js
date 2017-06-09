@@ -18,11 +18,6 @@ const campaignModeVorpal = new Vorpal();
 const dataModeVorpal =  new Vorpal();
 const sellModeVorpal = new Vorpal();
 
-// const mainScreenVorpal =  Vorpal();
-// const campaignModeVorpal =  Vorpal();
-// const dataModeVorpal =   Vorpal();
-// const sellModeVorpal =  Vorpal();
-
 var cash = require('cash');
 var working_dir;
 var county = -1;
@@ -40,9 +35,9 @@ function changeWorkingDir(directory){
     }
 }
 
-function appendGlobalWorkDir(directory){
-    working_dir =  __dirname + directory;
-    return working_dir;
+function appendToGlobalWorkDir(directory){
+    dir =  __dirname + directory;
+    return dir;
 }
 
 
@@ -72,34 +67,27 @@ var init = function() {
     changeCounty(configCounties[0].County);
     mainScreenVorpal.ui.redraw(
         ('\n') + mainScreenVorpal.chalk.bgBlue('~~~~~~~~~~~~~~~~~ Grunt') + mainScreenVorpal.chalk.bgGreen('JS ~~~~~~~~~~~~~~~~~~~~') + ('\n'));
-    changeWorkingDir(appendGlobalWorkDir(config.get('HomeMode.directoryConfig.main_directory')));
+    changeWorkingDir(appendToGlobalWorkDir(config.get('HomeMode.directoryConfig.main_directory')));
     mainScreenVorpal.log(mainScreenVorpal.chalk.green(capitalizeFirstLetter(county) + " County") + ('\n'));
 
     //Initiate all vorpal instances to use their own set of commands
     mainScreenVorpal
         .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
-        .use(require(appendGlobalWorkDir(config.get('HomeMode.directoryConfig.commandFilePath'))))
-        .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
-        .history('main-History')
+        .use(require(appendToGlobalWorkDir(config.get('HomeMode.directoryConfig.commandFilePath'))))
+        .use(require(appendToGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
         .show();
 
     campaignModeVorpal
-        .use(require(appendGlobalWorkDir(config.get('CampaignMode.directoryConfig.commandFilePath'))))
-        .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
-        .history('campaign-History')
-        .show();
+        .use(require(appendToGlobalWorkDir(config.get('CampaignMode.directoryConfig.commandFilePath'))))
+        .use(require(appendToGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
 
     dataModeVorpal
-        .use(require(appendGlobalWorkDir(config.get('DataMode.directoryConfig.commandFilePath'))))
-        .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
-        .history('data-History')
-        .show();
+        .use(require(appendToGlobalWorkDir(config.get('DataMode.directoryConfig.commandFilePath'))))
+        .use(require(appendToGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
 
     sellModeVorpal
-        .use(require(appendGlobalWorkDir(config.get('SellMode.directoryConfig.commandFilePath'))))
-        .use(require(appendGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
-        .history('sell-History')
-        .show();
+        .use(require(appendToGlobalWorkDir(config.get('SellMode.directoryConfig.commandFilePath'))))
+        .use(require(appendToGlobalWorkDir(config.get('sharedCommands.commandFilePath'))))
 
 };
 
@@ -107,52 +95,141 @@ var init = function() {
 
 var enterMode = function(mode) {
     if (mode == 'homeMode') {
-        changeWorkingDir(appendGlobalWorkDir(config.get('HomeMode.directoryConfig.main_directory')));
+        changeWorkingDir(appendToGlobalWorkDir(config.get('HomeMode.directoryConfig.main_directory')));
         mainScreenVorpal
             .delimiter(mainScreenVorpal.chalk.cyan('home-mode~>'))
             .show();
 
     } else if (mode == 'campaignMode') {
-        changeWorkingDir(appendGlobalWorkDir(config.get('CampaignMode.directoryConfig.main_directory')));
+        changeWorkingDir(appendToGlobalWorkDir(config.get('CampaignMode.directoryConfig.main_directory')));
         campaignModeVorpal
             .delimiter(campaignModeVorpal.chalk.cyan('campaign-mode~>'))
             .show();
 
     } else if (mode == 'dataMode') {
-        changeWorkingDir(appendGlobalWorkDir(config.get('DataMode.directoryConfig.main_directory')));
+        changeWorkingDir(appendToGlobalWorkDir(config.get('DataMode.directoryConfig.main_directory')));
         dataModeVorpal
             .delimiter(dataModeVorpal.chalk.green('data-mode~>'))
             .show();
 
+
     } else if (mode == 'sellMode') {
-        changeWorkingDir(appendGlobalWorkDir(onfig.get('SellMode.directoryConfig.main_directory')));
+        changeWorkingDir(appendToGlobalWorkDir(config.get('SellMode.directoryConfig.main_directory')));
         sellModeVorpal
             .delimiter(sellModeVorpal.chalk.blue('sellMode-mode~>'))
             .show();
     }
 };
 
+//######################Path Finding Helper functions#################################
+//#####################Provide Local Paths for User############################
 
-var checkCounty = function(county){
-    flag = 0
-    for(var myKey in configCounties) {
-        if (county == configCounties[myKey].County) {
-            flag = 1;
-            break;
-        }
+function checkDirectorySync(fileDir) {
+    try {
+        var stats = fs.statSync(fileDir);
+        return 1;
     }
-    return flag;
+    catch(err) {
+        console.log('Error: File Does Not Exist');
+        return 0;
+    }
+}
+
+
+var getStandaloneListPath = function(filename,checkcb){
+
+   status = checkDirectorySync(filename);
+
+};
+
+var getScriptTemplatePath = function(filename,checkcb){
+    flag = 0
+    retError = "";
+    try {
+        for (var myKey in configCounties) {
+            if (county == configCounties[myKey].County) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) throw "County Does Not Exist!"
+    }
+    catch(err){
+        retError = "Error: " + err + ".";
+    }
+
+    checkcb(retError,flag);
+
+};
+var getscriptConfigFilePath = function(filename,checkcb){
+    flag = 0
+    retError = "";
+    try {
+        for (var myKey in configCounties) {
+            if (county == configCounties[myKey].County) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) throw "County Does Not Exist!"
+    }
+    catch(err){
+        retError = "Error: " + err + ".";
+    }
+
+    checkcb(retError,flag);
+
+};
+var getDataConfigFilePath = function(filename,checkcb){
+    flag = 0
+    retError = "";
+    try {
+        for (var myKey in configCounties) {
+            if (county == configCounties[myKey].County) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) throw "County Does Not Exist!"
+    }
+    catch(err){
+        retError = "Error: " + err + ".";
+    }
+
+    checkcb(retError,flag);
+
+};
+
+
+//##############County Helper Functions###############
+var checkCounty = function(county,checkcb){
+    flag = 0
+    retError = "";
+    try {
+        for (var myKey in configCounties) {
+            if (county == configCounties[myKey].County) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) throw "County Does Not Exist!"
+    }
+    catch(err){
+            retError = "Error: " + err + ".";
+        }
+
+    checkcb(retError,flag);
 
 };
 
 var changeCounty = function(countyP) {
-    var checkR = checkCounty(countyP);
-    if ( checkR === 0 ) {
-       console.log(new Error("Invalid County"));
-    }
-    else {
-        county = countyP;
-    }
+    checkCounty(countyP,function(err,flag){
+        if(err)
+            {console.log(err);}
+        else
+            checkR = flag;
+            county = countyP;
+    });
 };
 
 var getCounty = function() {

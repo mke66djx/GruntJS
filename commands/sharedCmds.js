@@ -51,25 +51,17 @@ module.exports = function(vorpal, options) {
 
 
     vorpal
-        .command('county <county>', 'User provides -County- to localize file search scope')
+        .command('county [county]', 'User provides -County- to localize file search scope')
         .action(function(args, cb){
-
-            stateEngine.changeCounty((args.county).toLowerCase());
-
+            if (args.county == 'l') {
+                county = stateEngine.capitalizeFirstLetter(stateEngine.getCounty());
+                this.log(vorpal.chalk.green(county + " County") + ('\n'));
+             }
+            else{
+                stateEngine.changeCounty((args.county).toLowerCase());
+            };
             cb();
         });
-
-
-    vorpal
-        .command('getCounty', 'Get active county')
-        .action(function(args, cb){
-            county = stateEngine.capitalizeFirstLetter(stateEngine.getCounty());
-            this.log(county + " County") + ('\n');
-            cb();
-        });
-
-
-
 
 
 };
