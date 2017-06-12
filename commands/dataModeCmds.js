@@ -9,20 +9,28 @@ module.exports = function(vorpal, options) {
         .command('manPrint<scriptTemplate><dataList><scriptConfigFile><dataConfigFile>', 'Manual campaign print command. User provides a script template, data file in csv or exel format, and configFile')
         .action(function(args, cb){
 
-            standaloneListPath = getStandaloneListPath(dataList);
-            scriptTemplatePath = getScriptTemplatePath(scriptTemplate);
-            scriptConfigFilePath = getscriptConfigFilePath(scriptConfigFile);
-            dataConfigFilePath = getDataConfigFilePath(dataConfigFile);
+            //Convert this to one function that takes a description paramenter
+            datafilePath = stateEngine.getDataListPath(args.dataList, function(err,filepath){
+                if (err) {
+                    console.log('Error: Data File Does Not Exist!');
+                }
+                else
+                    return filepath;
+            });
+
+            // scriptTemplatePath = getScriptTemplatePath(scriptTemplate);
+            // scriptConfigFilePath = getScriptConfigPath(scriptConfigFile);
+            // dataConfigFilePath = getDataConfigPath(dataConfigFile);
 
             //var standaloneList = path.join(config.get('DataMode.directoryConfig.standalone_lists_directory'), args.dataFile)
             //console.log(standaloneList);
-            var standaloneList = 'Apts9PUnits.csv';
-            myCsvModule.csvToJsonF(standaloneList, function(returnValue) {
-                for(var myKey in returnValue) {
-                    var firstName =  returnValue[myKey].OWNERFIRST;
-                    //console.log(firstName);
-                }
-            });
+            // var standaloneList = 'Apts9PUnits.csv';
+            // myCsvModule.csvToJsonF(standaloneList, function(returnValue) {
+            //     for(var myKey in returnValue) {
+            //         var firstName =  returnValue[myKey].OWNERFIRST;
+            //         //console.log(firstName);
+            //     }
+            // });
 
             cb();
         });

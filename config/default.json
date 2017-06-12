@@ -17,8 +17,8 @@
     "directoryConfig": {
       "main_directory": "/work_spaces/data",
       "commandFilePath": "/commands/dataModeCmds",
-      "script_template_directory": "/scriptTemplates",
-      "standalone_lists_directory": "/standaloneLists"
+      "script_templates": "/scriptTemplates",
+      "standalone_lists": "/standaloneLists"
 
     }
 

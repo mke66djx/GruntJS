@@ -6,12 +6,11 @@ const Vorpal = require('vorpal');
 const inquirer = require('inquirer');
 var config = require('config');
 var configCounties = require('./config/counties.json');
-
-
+var path = require('path')
+var fs = require('fs')
 var process = require('process');
 var printer = require("printer")
 var util = require('util');
-
 
 const mainScreenVorpal = new Vorpal();
 const campaignModeVorpal = new Vorpal();
@@ -35,17 +34,6 @@ function changeWorkingDir(directory){
     }
 }
 
-function appendToGlobalWorkDir(directory){
-    dir =  __dirname + directory;
-    return dir;
-}
-
-
-function returnWorkingDir(){
-    return process.cwd();
-}
-
-
 //####################Cash Functions####################
 function cashLs(parameter){
     //return cash.ls([parameter],{l: true, all: true, humanreadable: true});
@@ -60,7 +48,6 @@ function cashCd(directory){
 function cashPwd(){
     return cash.pwd();
 }
-//#######################################################
 
 //Initialize and place in mainScreenMode
 var init = function() {
@@ -122,24 +109,31 @@ var enterMode = function(mode) {
 };
 
 //######################Path Finding Helper functions#################################
-//#####################Provide Local Paths for User############################
+
+function appendToGlobalWorkDir(directory){
+    dir =  __dirname + directory;
+    return dir;
+}
+
+function returnWorkingDir(){
+    return process.cwd();
+}
 
 function checkDirectorySync(fileDir) {
     try {
         var stats = fs.statSync(fileDir);
-        return 1;
+        return 0;
     }
     catch(err) {
-        console.log('Error: File Does Not Exist');
-        return 0;
+        return err
     }
 }
 
-
-var getStandaloneListPath = function(filename,checkcb){
-
-   status = checkDirectorySync(filename);
-
+var getDataListPath = function(filename,checkcb){
+    filepath = path.join(config.get('DataMode.directoryConfig.standalone_lists'),county,filename)
+    console.log(appendToGlobalWorkDir(filepath));
+    status = checkDirectorySync(filename);
+    checkcb(status,filepath);
 };
 
 var getScriptTemplatePath = function(filename,checkcb){
@@ -161,7 +155,8 @@ var getScriptTemplatePath = function(filename,checkcb){
     checkcb(retError,flag);
 
 };
-var getscriptConfigFilePath = function(filename,checkcb){
+
+var getScriptConfigPath = function(filename,checkcb){
     flag = 0
     retError = "";
     try {
@@ -180,7 +175,7 @@ var getscriptConfigFilePath = function(filename,checkcb){
     checkcb(retError,flag);
 
 };
-var getDataConfigFilePath = function(filename,checkcb){
+var getDataConfigPath = function(filename,checkcb){
     flag = 0
     retError = "";
     try {
@@ -201,7 +196,7 @@ var getDataConfigFilePath = function(filename,checkcb){
 };
 
 
-//##############County Helper Functions###############
+//#################County Helper Functions#################
 var checkCounty = function(county,checkcb){
     flag = 0
     retError = "";
@@ -256,6 +251,6 @@ module.exports.config= config;
 module.exports.changeCounty = changeCounty;
 module.exports.getCounty = getCounty;
 module.exports.capitalizeFirstLetter = capitalizeFirstLetter;
-
+module.exports.getDataListPath = getDataListPath;
 
 
