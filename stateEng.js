@@ -58,7 +58,7 @@ function checkDirectorySync(fileDir) {
 //####################Cash Functions####################
 function cashLs(parameter){
     //return cash.ls([parameter],{l: true, all: true, humanreadable: true});
-    return cash(parameter);
+    return cash.ls(parameter);
 }
 
 //Does not change working direcotry, only changing mode can change it

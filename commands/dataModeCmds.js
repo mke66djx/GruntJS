@@ -1,12 +1,14 @@
 var stateEngine = require('../stateEng');
 var myCsvModule =require('../Scripts/csvToJSON');
 var path = require('path');
+const fsAutocomplete = require('vorpal-autocomplete-fs');
 // var config = stateEngine.config;
 
 module.exports = function(vorpal, options) {
 
     vorpal
         .command('manPrint<scriptTemplate><dataList><scriptConfigFile><dataConfigFile>', 'Manual campaign print command. User provides a script template, data file in csv or exel format, and configFile')
+        .autocomplete(fsAutocomplete())
         .action(function(args, cb){
             failFlag = 0;
             dataListPath = stateEngine.getDataListPath(args.dataList, function(err,filepath){

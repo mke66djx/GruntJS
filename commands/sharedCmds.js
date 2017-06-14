@@ -26,18 +26,18 @@ module.exports = function(vorpal, options) {
             cb();
         });
 
-    vorpal
-        .command('ls [parameters]', 'Unix ls shell cmd')
-        .action(function(args, cb){
-            if(args.parameters)
-            {
-                lsOut = stateEngine.cashLs("ls -"+args.parameters);
-            }
-            else
-                lsOut = stateEngine.cashLs('ls');
-            this.log(lsOut);
-            cb();
-        });
+    // vorpal
+    //     .command('ls [parameters]', 'Unix ls shell cmd')
+    //     .action(function(args, cb){
+    //         if(args.parameters)
+    //         {
+    //             lsOut = stateEngine.cashLs(args.parameters);
+    //         }
+    //         else
+    //             lsOut = stateEngine.cashLs('');
+    //         this.log(lsOut);
+    //         cb();
+    //     });
 
     //Enter given user mode
     vorpal
