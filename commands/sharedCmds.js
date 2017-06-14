@@ -39,7 +39,6 @@ module.exports = function(vorpal, options) {
             cb();
         });
 
-
     //Enter given user mode
     vorpal
         .command('enter <state_mode>', 'Enters a user mode')
@@ -48,7 +47,6 @@ module.exports = function(vorpal, options) {
             stateEngine.enterMode(args.state_mode);
             cb();
         });
-
 
     vorpal
         .command('county [county]', 'User provides -County- to localize file search scope')

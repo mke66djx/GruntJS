@@ -18,8 +18,9 @@
       "main_directory": "/work_spaces/data",
       "commandFilePath": "/commands/dataModeCmds",
       "script_templates": "/scriptTemplates",
-      "standalone_lists": "/standaloneLists"
-
+      "standalone_lists": "/standaloneLists",
+      "script_configs": "/scriptConfigs",
+      "data_configs": "/dataConfigs"
     }
 
   },
