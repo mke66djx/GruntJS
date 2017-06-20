@@ -1,5 +1,5 @@
 var stateEngine = require('../stateEng');
-
+const fsAutocomplete = require('vorpal-autocomplete-fs');
 module.exports = function(vorpal, options) {
 
 
@@ -11,21 +11,21 @@ module.exports = function(vorpal, options) {
             cb();
         });
 
-    vorpal
-        .command('pwd', 'Unix pwd command')
-        .action(function(args, cb){
-            var pwd = stateEngine.cashPwd();
-            this.log(pwd);
-            cb();
-        });
-
-    vorpal
-        .command('cd <directory>', 'Unix cd command')
-        .action(function(args, cb){
-            stateEngine.cashCd(args.directory);
-            cb();
-        });
-
+    // vorpal
+    //     .command('pwd', 'Unix pwd command')
+    //     .action(function(args, cb){
+    //         var pwd = stateEngine.cashPwd();
+    //         this.log(pwd);
+    //         cb();
+    //     });
+    //
+    // vorpal
+    //     .command('cd <directory>', 'Unix cd command')
+    //     .action(function(args, cb){
+    //         stateEngine.cashCd(args.directory);
+    //         cb();
+    //     });
+    //
     // vorpal
     //     .command('ls [parameters]', 'Unix ls shell cmd')
     //     .action(function(args, cb){

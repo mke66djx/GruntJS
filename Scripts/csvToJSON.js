@@ -1,4 +1,5 @@
 function csvToJsonF(filePath,callback){
+    console.log(filePath);
     var fileP = filePath
 
     var Converter = require("csvtojson").Converter;
