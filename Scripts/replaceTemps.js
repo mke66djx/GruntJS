@@ -3,8 +3,8 @@ var docxtemplate = require('docxtemplater');
 var fs = require('fs');
 var path = require('path');
 
-function tempReplaceOnce(filePathIn,fileOut,jsonOfParams) {
-
+function replaceAllTemps(filePathIn,fileOut,jsonOfParams) {
+    console.log("FilePathIn",filePathIn);
 //Load the docx file as a binary
     var content = fs
         .readFileSync(path.resolve(__dirname, filePathIn), 'binary');
@@ -46,7 +46,7 @@ doc.setData(jsonOfParams);
 }
 
 
-module.exports.tempReplaceSingle = tempReplaceSingle;
+module.exports.replaceAllTemps= replaceAllTemps;
 
 
 

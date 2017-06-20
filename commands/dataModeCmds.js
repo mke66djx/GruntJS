@@ -21,7 +21,6 @@ module.exports = function(vorpal, options)
             status = -1;
 
 
-
             status,dataListPath = stateEngine.getDataListPath(args.dataList)
             if (status) {
                 console.log('Error: Data File Does Not Exist!');
@@ -43,15 +42,15 @@ module.exports = function(vorpal, options)
 
             if(failFlag == 0)
             {
-                myCsvModule.csvToJsonF(dataListPath, function(returnValue)
+                myCsvModule.csvToJsonF(dataListPath, function(dataListItem)
                 {
-
-
                     //Get all unique template params
                     textract.fromFileWithPath(scriptTemplatePath, function( error, text )
                     {
                         if(error){
-                            console.log("Error: Reading Script Template File Failed!");
+                            console.log("Error: Extracting Text From Script Template File Failed!");
+                            console.log(error);
+
                         }
                         else
                         {
@@ -59,19 +58,21 @@ module.exports = function(vorpal, options)
                             scriptTemplateArr.forEach(function (value, i) {
                                 scriptTemplateArr[i] = value.substring(0, value.indexOf('}'))
                             });
-                            numElements = arr.length;
-                            templateParam_arr = Array.from(new Set(arr));
+                            templateParam_arr = (Array.from(new Set(scriptTemplateArr))).filter(Boolean);
 
-                            for(var myKey in returnValue)
+                            for(var myKey in dataListItem)
                             {
-
-                                jsonParams = stateEngine.generateParamsJson(templateParam_arr,returnValue[myKey],dataConfigPath)
+                                //jsonParams = stateEngine.generateParamsJson(templateParam_arr,dataListItem[myKey],dataConfigPath)
+                                jsonParams= {}
                                 tempDocDocXFilepath = stateEngine.getTempFilePath("tempDoc.docx");
                                 tempDocPdfFilepath = stateEngine.getTempFilePath("tempDoc.pdf");
 
-                                replaceTemps(scriptTemplatePath,tempDocDocXFilepath,jsonParams);
-                                toPdf(tempDocDocXFilepath);
-                                print.printSingleFile(tempDocPdfFilepath);
+                                console.log(tempDocDocXFilepath);
+
+                                replaceTemps.replaceAllTemps(scriptTemplatePath,tempDocDocXFilepath,jsonParams);
+                                //toPdf(tempDocDocXFilepath);
+                                //print.printSingleFile(tempDocPdfFilepath);
+                                break;
                             }
 
                         }

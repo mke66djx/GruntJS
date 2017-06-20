@@ -48,6 +48,7 @@ function checkDirectorySync(fileDir) {
         return 0;
     }
     catch(err) {
+        console.log(err);
         return err
     }
 }
@@ -84,6 +85,7 @@ var init = function() {
         .use(require(path.join(exec_dir,config.get('CampaignMode.directoryConfig.commandFilePath'))))
         .use(require(path.join(exec_dir,config.get('DataMode.directoryConfig.commandFilePath'))))
         .use(require(path.join(exec_dir,config.get('SellMode.directoryConfig.commandFilePath'))))
+        .history('gruntJSWorkHist')
         .show();
 
 };
@@ -139,7 +141,8 @@ var getConfigPath = function(file){
 };
 
 var getTempFilePath = function(file){
-    filepath = appendToGlobalWorkDir(file);
+    filepathM = path.normalize(path.join("/tmp",file))
+    filepath = appendToGlobalWorkDir(filepathM);
     status = checkDirectorySync(filepath);
     return status,filepath;
 };
@@ -185,26 +188,18 @@ var capitalizeFirstLetter = function(string) {
 };
 
 //####################### Data Mode Helpers#######################
-
-var generateParamsJson = function(templateParam_arr,returnValue,configFilePath) {
+var generateParamsJson = function(templateParam_arr,dataListItem,configFilePath) {
     var jsonData = {};
     var dataConfigs = require(configFilePath);
 
-    columnsResult.forEach(function(row)
+    templateParam_arr.forEach(function(element)
     {
         var dataConfigs = require(configFilePath);
-        for (var myKey in dataConfigs) {
-            if (county == configCounties[myKey].County) {
-                flag = 1;
-                break;
-            }
-        }
-
-        //
-        jsonData[columnName] = row.value;
+        jsonData[element] = dataListItem[(dataConfigs.Sacramento1[element])];
     });
-};
 
+    return jsonData;
+};
 
 //Export all public members
 module.exports.init = init;
