@@ -3,23 +3,25 @@ var docxtemplate = require('docxtemplater');
 var fs = require('fs');
 var path = require('path');
 
-function tempReplaceOnce(filePathIn,fileOut,param1,param2,param3,param4) {
+function tempReplaceOnce(filePathIn,fileOut,jsonOfParams) {
 
 //Load the docx file as a binary
     var content = fs
-        .readFileSync(path.resolve(__dirname, 'input.docx'), 'binary');
+        .readFileSync(path.resolve(__dirname, filePathIn), 'binary');
 
     var zip = new JSZip(content);
     var doc = new docxtemplate();
     doc.loadZip(zip);
 
 //set the templateVariables
-    doc.setData({
-        first_name: 'John',
-        last_name: 'Doe',
-        phone: '0652455478',
-        description: 'New Website'
-    });
+//     doc.setData({
+//         first_name: 'John',
+//         last_name: 'Doe',
+//         phone: '0652455478',
+//         description: 'New Website'
+//     });
+
+doc.setData(jsonOfParams);
 
 // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
     try {
@@ -39,7 +41,7 @@ function tempReplaceOnce(filePathIn,fileOut,param1,param2,param3,param4) {
     var buf = doc.getZip()
         .generate({type: 'nodebuffer'});
 
-    fs.writeFileSync(path.resolve(__dirname, 'output.docx'), buf);
+    fs.writeFileSync(path.resolve(__dirname,fileOut), buf);
 
 }
 

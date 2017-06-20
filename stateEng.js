@@ -6,6 +6,7 @@ var Vorpal = require('vorpal');
 var textract = require('textract');
 var config = require('config');
 var configCounties = require('./config/counties.json');
+
 var path = require('path')
 var fs = require('fs')
 var process = require('process');
@@ -137,6 +138,12 @@ var getConfigPath = function(file){
     return status,filepath;
 };
 
+var getTempFilePath = function(file){
+    filepath = appendToGlobalWorkDir(file);
+    status = checkDirectorySync(filepath);
+    return status,filepath;
+};
+
 
 //#################County Helper Functions#################
 var checkCounty = function(county,checkcb){
@@ -177,6 +184,27 @@ var capitalizeFirstLetter = function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+//####################### Data Mode Helpers#######################
+
+var generateParamsJson = function(templateParam_arr,returnValue,configFilePath) {
+    var jsonData = {};
+    var dataConfigs = require(configFilePath);
+
+    columnsResult.forEach(function(row)
+    {
+        var dataConfigs = require(configFilePath);
+        for (var myKey in dataConfigs) {
+            if (county == configCounties[myKey].County) {
+                flag = 1;
+                break;
+            }
+        }
+
+
+        jsonData[columnName] = row.value;
+    });
+};
+
 
 //Export all public members
 module.exports.init = init;
@@ -196,5 +224,7 @@ module.exports.capitalizeFirstLetter = capitalizeFirstLetter;
 module.exports.getDataListPath = getDataListPath;
 module.exports.getScriptTemplatePath = getScriptTemplatePath;
 module.exports.getConfigPath = getConfigPath;
+module.exports.getTempFilePath = getTempFilePath;
+module.exports.generateParamsJson = generateParamsJson;
 
 
