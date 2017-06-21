@@ -6,6 +6,7 @@ function printSingleFile(fileNamePath){
     var filenamePrint = fileNamePath || __filename;
 
     if( process.platform != 'win32') {
+        console.log("Top Part");
         printer.printFile({filename:filenamePrint,
             printer: process.env[3], // printer name, if missing then will print to default printer
             success:function(jobID){

@@ -141,8 +141,7 @@ var getConfigPath = function(file){
 };
 
 var getTempFilePath = function(file){
-    filepathM = path.normalize(path.join("/tmp",file))
-    filepath = appendToGlobalWorkDir(filepathM);
+    filepath = appendToGlobalWorkDir(file);
     status = checkDirectorySync(filepath);
     return status,filepath;
 };

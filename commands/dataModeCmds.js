@@ -62,17 +62,27 @@ module.exports = function(vorpal, options)
 
                             for(var myKey in dataListItem)
                             {
-                                //jsonParams = stateEngine.generateParamsJson(templateParam_arr,dataListItem[myKey],dataConfigPath)
+
                                 jsonParams= {}
-                                tempDocDocXFilepath = stateEngine.getTempFilePath("tempDoc.docx");
-                                tempDocPdfFilepath = stateEngine.getTempFilePath("tempDoc.pdf");
+                                tempDocx = stateEngine.getTempFilePath("tempDoc.docx");
+                                tempPdf = stateEngine.getTempFilePath("tempDoc.pdf");
 
-                                console.log(tempDocDocXFilepath);
+                                //Needs to be included in waterfall
+                                jsonParams = stateEngine.generateParamsJson(templateParam_arr,dataListItem[myKey],dataConfigPath)
 
-                                replaceTemps.replaceAllTemps(scriptTemplatePath,tempDocDocXFilepath,jsonParams);
-                                //toPdf(tempDocDocXFilepath);
-                                //print.printSingleFile(tempDocPdfFilepath);
-                                break;
+                                //console.log(scriptTemplatePath)
+                                console.log(jsonParams)
+
+                                //Needs to be included in waterfall
+                                replaceTemps.replaceAllTemps(scriptTemplatePath,tempDocx,jsonParams);
+
+                                //Needs to be included in waterfall
+                                toPdf(tempDocx);
+
+                                //Needs to be included in waterfall
+                                print.printSingleFile(tempPdf);
+
+
                             }
 
                         }
