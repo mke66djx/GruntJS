@@ -8,86 +8,185 @@ const fsAutocomplete = require('vorpal-autocomplete-fs');
 var textract = require('textract');
 var toPdf = require("office-to-pdf");
 
+var scriptSelect = function(dataItem,dataConfigs)
+{
+    landUseString = dataItem["LANDUSE"]
+    ownerLast_name = dataItem["OWNERLAST"]
+    ownerFirst_name = dataItem["OWNERFIRST"]
+    corpFlag = 0
+    noGoFlag = 0
+    propTypeFound = 0
+
+    //Check if no-go
+    for(var i = 0; i < dataConfigs.NoGo_Keywords.length; i++)
+    {
+        if (ownerFirst_name.includes(dataConfigs.NoGo_Keywords[i]))
+        {
+            noGoFLag = 1
+        }
+    }
+
+    //Check if Corp
+    for(var i = 0; i < dataConfigs.Corp_KeyWords.length; i++)
+    {
+        //console.log("Corp",ownerFirst_name.includes(dataConfigs.Corp_KeyWords[i]))
+        if (ownerFirst_name.includes(dataConfigs.Corp_KeyWords[i]))
+        {
+            corpFlag = 1
+        }
+    }
+
+    //Check if property type exists
+    for(var i = 0; i < dataConfigs.PropertyTypes.length; i++)
+    {
+        //console.log(landUseString)
+        //console.log("Property Type", landUseString.includes(dataConfigs.PropertyTypes[i]))
+        if (landUseString.includes(dataConfigs.PropertyTypes[i]))
+        {
+            propTypeFound = 1
+            break;
+        }
+        else
+        {
+            propTypeFound = 0
+        }
+
+    }
+
+    if (propTypeFound == 0)
+    {
+        noGoFlag = 1
+    }
+
+    //Return template
+    if(noGoFlag)
+    {
+        return dataConfigs.ScriptTemplates.Person["Generic"]
+    }
+
+    else if(corpFlag)
+    {
+        //console.log(dataConfigs.ScriptTemplates.LLC[landUseString])
+        return dataConfigs.ScriptTemplates.LLC[landUseString]
+    }
+    else
+    {
+        //console.log(dataConfigs.ScriptTemplates.Person[landUseString])
+        return dataConfigs.ScriptTemplates.Person[landUseString]
+    }
+
+};
+
 
 module.exports = function(vorpal, options)
 {
 
     vorpal
-        .command('manPrint<dataList><scriptTemplate><configFile>', 'Manual campaign print command. User provides a script template, data file in csv or exel format, and configFile')
+        .command('manPrint<dataList><configFile>', 'Manual campaign print command. User provides a script template, data file in csv or exel format, and configFile')
         .autocomplete(fsAutocomplete())
         .action(function(args, cb)
         {
             failFlag = 0;
-            status = -1;
+            dataListstatus = [];
+            configStatus = [];
+
+            dataListstatus = stateEngine.checkFile(args.dataList)
+            configStatus = stateEngine.checkFile(args.configFile)
 
 
-            status,dataListPath = stateEngine.getDataListPath(args.dataList)
-            if (status) {
+            //Check if data and config files exist
+            if (dataListstatus[0])
+            {
                 console.log('Error: Data File Does Not Exist!');
                 failFlag = 1;
             }
 
-            status,scriptTemplatePath = stateEngine.getScriptTemplatePath(args.scriptTemplate)
-            if (status) {
-                console.log('Error: Script-Template File Does Not Exist!');
-                failFlag = 1;
-            }
-
-            status,dataConfigPath = stateEngine.getConfigPath(args.configFile)
-            if (status) {
+            if (configStatus[0])
+            {
                 console.log('Error: Config File Does Not Exist!');
                 failFlag = 1;
             }
 
-
+            //If files do not exist do not run
             if(failFlag == 0)
             {
-                myCsvModule.csvToJsonF(dataListPath, function(dataListItem)
+                myCsvModule.csvToJsonF(dataListstatus[1], function(dataListJson)
                 {
-                    //Get all unique template params
-                    textract.fromFileWithPath(scriptTemplatePath, function( error, text )
+                    var dataListJsonIndex = 0;
+                    var dataConfigs = require(configStatus[1])
+
+                    //console.log("DataListLength",dataListJson.length)
+                    dataListLen = dataListJson.length
+                    //console.log("DataListLength",dataListLen)
+
+                    var runJob = function(value)
                     {
-                        if(error){
-                            console.log("Error: Extracting Text From Script Template File Failed!");
-                            console.log(error);
 
-                        }
-                        else
+                        dataListLen = dataListLen -1
+                        //console.log("Index",dataListJsonIndex,dataListJson[dataListJsonIndex])
+                        selectedScript = scriptSelect(dataListJson[dataListJsonIndex],dataConfigs)
+
+                        selectecScriptPath = stateEngine.checkFile(selectedScript)
+
+                        setTimeout(function()
                         {
-                            var scriptTemplateArr = text.split("{");
-                            scriptTemplateArr.forEach(function (value, i) {
-                                scriptTemplateArr[i] = value.substring(0, value.indexOf('}'))
-                            });
-                            templateParam_arr = (Array.from(new Set(scriptTemplateArr))).filter(Boolean);
+                            //Get all unique template params
+                             textract.fromFileWithPath(selectecScriptPath[1], function( error, text )
+                             {
+                                 if(error){
+                                     console.log("Error: Extracting Text From Script Template File Failed!");
+                                     console.log(error);
 
-                            for(var myKey in dataListItem)
-                            {
+                                 }
+                                 else
+                                 {
 
-                                jsonParams= {}
-                                tempDocx = stateEngine.getTempFilePath("tempDoc.docx");
-                                tempPdf = stateEngine.getTempFilePath("tempDoc.pdf");
+                                     var scriptTemplateArr = text.split("{");
+                                     //console.log(scriptTemplateArr)
+                                     scriptTemplateArr.forEach(function (value, dataListJsonIndex)
+                                     {
+                                         scriptTemplateArr[dataListJsonIndex] = value.substring(0, value.indexOf('}'))
+                                     });
 
-                                //Needs to be included in waterfall
-                                jsonParams = stateEngine.generateParamsJson(templateParam_arr,dataListItem[myKey],dataConfigPath)
+                                     templateParam_arr = (Array.from(new Set(scriptTemplateArr))).filter(Boolean);
 
-                                //console.log(scriptTemplatePath)
-                                console.log(jsonParams)
+                                     setTimeout(function()
+                                     {
+                                         jsonParams= {}
 
-                                //Needs to be included in waterfall
-                                replaceTemps.replaceAllTemps(scriptTemplatePath,tempDocx,jsonParams);
+                                         tempDocx = stateEngine.appendToGlobalWorkDir("tempDoc.docx");
+                                         tempPdf = stateEngine.appendToGlobalWorkDir("tempDoc.pdf");
 
-                                //Needs to be included in waterfall
-                                toPdf(tempDocx);
+                                         //console.log("DataCOnfigs",dataConfigs)
 
-                                //Needs to be included in waterfall
-                                print.printSingleFile(tempPdf);
+                                         jsonParams = stateEngine.generateParamsJson(dataListJson[dataListJsonIndex],configStatus[1])
 
+                                         dataListJsonIndex = dataListJsonIndex +1;
 
-                            }
+                                         replaceTemps.replaceAllTemps(selectecScriptPath[1],tempDocx,jsonParams);
 
-                        }
+                                         setTimeout(function()
+                                         {
+                                             toPdf(tempDocx);
+                                         },1000)
 
-                    });
+                                         setTimeout(function()
+                                         {
+                                             //print.printSingleFile(tempPdf);
+                                             //console.log("Printing jack shit..")
+                                             console.log("Printing.......")
+                                         },2000)
+
+                                         if (dataListLen >0){ runJob(dataListLen);}
+                                     },2000)
+                                 }
+                             });
+
+                        },1000)
+
+                    };
+
+                    runJob(dataListLen);
 
                 });
             }

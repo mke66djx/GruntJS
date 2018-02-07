@@ -4,7 +4,6 @@ var fs = require('fs');
 var path = require('path');
 
 function replaceAllTemps(filePathIn,fileOut,jsonOfParams) {
-    console.log("FilePathIn",filePathIn);
 //Load the docx file as a binary
     var content = fs
         .readFileSync(path.resolve(__dirname, filePathIn), 'binary');
@@ -42,7 +41,6 @@ doc.setData(jsonOfParams);
         .generate({type: 'nodebuffer'});
 
     fs.writeFileSync(path.resolve(__dirname,fileOut), buf);
-
 }
 
 

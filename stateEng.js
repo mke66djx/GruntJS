@@ -49,7 +49,7 @@ function checkDirectorySync(fileDir) {
     }
     catch(err) {
         console.log(err);
-        return err
+        return err;
     }
 }
 
@@ -122,28 +122,8 @@ var enterMode = function(mode) {
 
 //######################Path Finding Helper functions#################################
 
-var getDataListPath = function(file){
-    filepath = appendToGlobalWorkDir(file);
-    status = checkDirectorySync(filepath);
-    return status,filepath;
-};
-
-var getScriptTemplatePath = function(file){
-    filepath = appendToGlobalWorkDir(file);
-    status = checkDirectorySync(filepath);
-    return status,filepath;
-};
-
-var getConfigPath = function(file){
-    filepath = appendToGlobalWorkDir(file);
-    status = checkDirectorySync(filepath);
-    return status,filepath;
-};
-
-var getTempFilePath = function(file){
-    filepath = appendToGlobalWorkDir(file);
-    status = checkDirectorySync(filepath);
-    return status,filepath;
+var checkFile = function(file){
+    return [checkDirectorySync(appendToGlobalWorkDir(file)),appendToGlobalWorkDir(file)];
 };
 
 
@@ -187,14 +167,13 @@ var capitalizeFirstLetter = function(string) {
 };
 
 //####################### Data Mode Helpers#######################
-var generateParamsJson = function(templateParam_arr,dataListItem,configFilePath) {
+var generateParamsJson = function(dataListItem,configFilePath) {
     var jsonData = {};
     var dataConfigs = require(configFilePath);
 
     templateParam_arr.forEach(function(element)
     {
-        var dataConfigs = require(configFilePath);
-        jsonData[element] = dataListItem[(dataConfigs.Sacramento1[element])];
+        jsonData[element] = dataListItem[(dataConfigs.Headers[element])];
     });
 
     return jsonData;
@@ -215,10 +194,8 @@ module.exports.config= config;
 module.exports.changeCounty = changeCounty;
 module.exports.getCounty = getCounty;
 module.exports.capitalizeFirstLetter = capitalizeFirstLetter;
-module.exports.getDataListPath = getDataListPath;
-module.exports.getScriptTemplatePath = getScriptTemplatePath;
-module.exports.getConfigPath = getConfigPath;
-module.exports.getTempFilePath = getTempFilePath;
+module.exports.checkFile = checkFile;
 module.exports.generateParamsJson = generateParamsJson;
+module.exports.appendToGlobalWorkDir = appendToGlobalWorkDir;
 
 

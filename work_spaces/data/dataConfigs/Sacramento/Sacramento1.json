@@ -1,14 +1,51 @@
 {
-"Sacramento1": {
-  "Owner_First_Name": "OWNERFIRST",
-  "Owner_Last_Name": "OWNERLAST",
-  "Owner_Address": "MAILADDRES",
-  "Owner_Mail_City": "MAILCITY",
-  "Owner_Mail_State": "MAILSTATE",
-  "Owner_Owner_Zip": "MAILZIP",
-  "Site_Address": "SITEADDRES",
-  "Site_City": "SITECITY",
-  "Site_State": "SITESTATE",
-  "Site_Zip": "SZIPANDZIP"
+
+  "NoGo_Keywords":["Irrevocable","Sacramento","Assoc"],
+
+  "Corp_KeyWords": ["LLC","Corporation","Inc","Enterprises","Joint","Investors","Partnership","Apartments","Partners","Incorporated"],
+
+  "PropertyTypes": ["RES,DUPLEX","RES,FOURPLEX","RES,THREE FAMILY TRIPLEX","RES,LOW RISE APTS","RES,TWO SINGLE FAMILY UNITS","RES,THREE SINGLE FAMILY UNITS"],
+
+  "Headers":
+  {
+    "Owner_First_Name": "OWNERFIRST",
+    "Owner_Last_Name": "OWNERLAST",
+    "Owner_Address": "MAILADDRES",
+    "Owner_Mail_City": "MAILCITY",
+    "Owner_Mail_State": "MAILSTATE",
+    "Owner_Owner_Zip": "MAILZIP",
+    "Site_Address": "SITEADDRES",
+    "Site_City": "SITECITY",
+    "Site_State": "SITESTATE",
+    "Site_Zip": "SZIPANDZIP",
+    "Units": "TOTUNITS",
+    "Landuse": "LANDUSE"
+  },
+
+  "ScriptTemplates":
+  {
+    "LLC":
+    {
+      "RES,DUPLEX": "/scriptTemplates/Sacramento/DupleX_LLC.docx",
+      "RES,FOURPLEX": "/scriptTemplates/Sacramento/FourX_LLC.docx",
+      "RES,THREE FAMILY TRIPLEX": "/scriptTemplates/Sacramento/TripleX_LLC.docx",
+      "RES,LOW RISE APTS": "/scriptTemplates/Sacramento/LowRiseApts_LLC.docx",
+      "RES,TWO SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/TwoSingleFamilyUnits_LLC.docx",
+      "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx"
+    },
+
+    "Person":
+    {
+      "Generic":"/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,DUPLEX": "/scriptTemplates/Sacramento/DupleX_V2.docx",
+      "RES,FOURPLEX": "/scriptTemplates/Sacramento/FourX.docx",
+      "RES,THREE FAMILY TRIPLEX": "/scriptTemplates/Sacramento/TripleX.docx",
+      "RES,LOW RISE APTS": "/scriptTemplates/Sacramento/LowRiseApts.docx",
+      "RES,TWO SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/TwoSingleFamilyUnits.docx",
+      "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx"
+    }
+
   }
+
+
 }
