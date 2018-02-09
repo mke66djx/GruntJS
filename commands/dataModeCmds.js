@@ -94,7 +94,7 @@ module.exports = function(vorpal, options)
             configStatus = stateEngine.checkFile(args.configFile)
 
 
-            //Check if data and config files exist
+            //Check if data and config exist
             if (dataListstatus[0])
             {
                 console.log('Error: Data File Does Not Exist!');
@@ -172,9 +172,8 @@ module.exports = function(vorpal, options)
 
                                          setTimeout(function()
                                          {
-                                             //print.printSingleFile(tempPdf);
+                                             print.printSingleFile(tempPdf);
                                              //console.log("Printing jack shit..")
-                                             console.log("Printing.......")
                                          },2000)
 
                                          if (dataListLen >0){ runJob(dataListLen);}
