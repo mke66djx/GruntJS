@@ -4,6 +4,7 @@
     <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/dataModeCmds.js" afterPath="$PROJECT_DIR$/commands/dataModeCmds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stateEng.js" afterPath="$PROJECT_DIR$/stateEng.js" />
     </list>
     <list id="5db18ffa-22dd-407a-acfe-db497d019cb3" name="Rejected commit: Default" comment="GruntJS: Began work on manual campaign printing" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +32,8 @@
       <file leaf-file-name="stateEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stateEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+            <state relative-caret-position="239">
+              <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -41,8 +42,20 @@
       <file leaf-file-name="dataModeCmds.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="252">
+              <caret line="105" column="7" lean-forward="true" selection-start-line="105" selection-start-column="7" selection-end-line="122" selection-end-column="13" />
+              <folding>
+                <element signature="e#3348#7374#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="replaceTemps.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,8 +64,8 @@
       <file leaf-file-name="Sacramento1.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="31" />
+            <state relative-caret-position="30">
+              <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -90,9 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>session.getAutocomplete</find>
-      <find>getAutocomplete</find>
-      <find>session</find>
       <find>activeCommand</find>
       <find>acti</find>
       <find>autocomplete.mat</find>
@@ -112,7 +122,6 @@
       <find>filepath</find>
       <find>FilePathIn</find>
       <find>dataStatus</find>
-      <find>templateParam_arr</find>
       <find>param</find>
       <find>gener</find>
       <find>console.log</find>
@@ -120,6 +129,10 @@
       <find>datali</find>
       <find>//</find>
       <find>dataConfig</find>
+      <find>scriptSel</find>
+      <find>value</find>
+      <find>dataListJsonIndex</find>
+      <find>templateParam_arr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,8 +194,8 @@
         <option value="$PROJECT_DIR$/node_modules/printer/lib/printer.js" />
         <option value="$PROJECT_DIR$/Scripts/print.js" />
         <option value="$PROJECT_DIR$/Scripts/replaceTemps.js" />
-        <option value="$PROJECT_DIR$/stateEng.js" />
         <option value="$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json" />
+        <option value="$PROJECT_DIR$/stateEng.js" />
         <option value="$PROJECT_DIR$/commands/dataModeCmds.js" />
       </list>
     </option>
@@ -799,7 +812,7 @@
       <workItem from="1506398750865" duration="33843000" />
       <workItem from="1510553960301" duration="1990000" />
       <workItem from="1510726510684" duration="1260000" />
-      <workItem from="1517978472387" duration="6134000" />
+      <workItem from="1517978472387" duration="13959000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -899,11 +912,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518022855658</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="GruntJS: Roll back to fix issues">
+      <created>1518196132533</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1518196132533</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284600000" />
+    <option name="totallyTimeSpent" value="292425000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1021,7 +1041,8 @@
     <MESSAGE value="GruntJS: Continued work on manPrint" />
     <MESSAGE value="GruntJS: Further work on manPrint. Issues with printing files- synchronous functions need to be placed in waterfall along with the async functions." />
     <MESSAGE value="GruntJS: Began rework on most of the code to make it more robust" />
-    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Began rework on most of the code to make it more robust" />
+    <MESSAGE value="GruntJS: Roll back to fix issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Roll back to fix issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1238,13 +1259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/sharedCmds.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1294,25 +1308,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="31" />
+        <state relative-caret-position="30">
+          <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stateEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        <state relative-caret-position="239">
+          <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="252">
+          <caret line="105" column="7" lean-forward="true" selection-start-line="105" selection-start-column="7" selection-end-line="122" selection-end-column="13" />
+          <folding>
+            <element signature="e#3348#7374#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

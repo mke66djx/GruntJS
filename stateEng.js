@@ -167,11 +167,11 @@ var capitalizeFirstLetter = function(string) {
 };
 
 //####################### Data Mode Helpers#######################
-var generateParamsJson = function(dataListItem,configFilePath) {
+var generateParamsJson = function(dataListItem,configFilePath,templateParams) {
     var jsonData = {};
     var dataConfigs = require(configFilePath);
 
-    templateParam_arr.forEach(function(element)
+    templateParams.forEach(function(element)
     {
         jsonData[element] = dataListItem[(dataConfigs.Headers[element])];
     });

@@ -13,17 +13,27 @@ var scriptSelect = function(dataItem,dataConfigs)
     landUseString = dataItem["LANDUSE"]
     ownerLast_name = dataItem["OWNERLAST"]
     ownerFirst_name = dataItem["OWNERFIRST"]
-    corpFlag = 0
-    noGoFlag = 0
-    propTypeFound = 0
+    corpFlag,noGoFlag,propTypeFound = 0
+    ownerFirstFlag, ownerLastFlag = -1
 
-    //Check if no-go
+
+    if(ownerFirst_name && ownerLast_name)
+    {
+        return dataConfigs.ScriptTemplates.Person[landUseString]
+    }
+
+    if(ownerFirst_name && !ownerFirst_name)
+    {
+
+    }
+
     for(var i = 0; i < dataConfigs.NoGo_Keywords.length; i++)
     {
         if (ownerFirst_name.includes(dataConfigs.NoGo_Keywords[i]))
         {
             noGoFLag = 1
         }
+
     }
 
     //Check if Corp
@@ -39,8 +49,6 @@ var scriptSelect = function(dataItem,dataConfigs)
     //Check if property type exists
     for(var i = 0; i < dataConfigs.PropertyTypes.length; i++)
     {
-        //console.log(landUseString)
-        //console.log("Property Type", landUseString.includes(dataConfigs.PropertyTypes[i]))
         if (landUseString.includes(dataConfigs.PropertyTypes[i]))
         {
             propTypeFound = 1
@@ -89,10 +97,8 @@ module.exports = function(vorpal, options)
             failFlag = 0;
             dataListstatus = [];
             configStatus = [];
-
             dataListstatus = stateEngine.checkFile(args.dataList)
             configStatus = stateEngine.checkFile(args.configFile)
-
 
             //Check if data and config exist
             if (dataListstatus[0])
@@ -107,6 +113,15 @@ module.exports = function(vorpal, options)
                 failFlag = 1;
             }
 
+            for(var i = 0; i < dataConfigs.NoGo_Keywords.length; i++)
+            {
+                if (ownerFirst_name.includes(dataConfigs.NoGo_Keywords[i]))
+                {
+                    noGoFLag = 1
+                }
+
+            }
+
             //If files do not exist do not run
             if(failFlag == 0)
             {
@@ -115,22 +130,26 @@ module.exports = function(vorpal, options)
                     var dataListJsonIndex = 0;
                     var dataConfigs = require(configStatus[1])
 
-                    //console.log("DataListLength",dataListJson.length)
-                    dataListLen = dataListJson.length
-                    //console.log("DataListLength",dataListLen)
 
+                    dataListLen = dataListJson.length
+
+                    //This function gets run dataListLen times, essentially # of rows in data list
                     var runJob = function(value)
                     {
 
                         dataListLen = dataListLen -1
                         //console.log("Index",dataListJsonIndex,dataListJson[dataListJsonIndex])
+
+                        // Select script based on listing it. Ex; duplex, triplex, corporation classifications each have dif script
                         selectedScript = scriptSelect(dataListJson[dataListJsonIndex],dataConfigs)
 
+                        //Check to see if script exists
                         selectecScriptPath = stateEngine.checkFile(selectedScript)
 
+                        //Set timeout calls function every x ms
                         setTimeout(function()
                         {
-                            //Get all unique template params
+                            //Get all unique template params from the script, if no error continue with params
                              textract.fromFileWithPath(selectecScriptPath[1], function( error, text )
                              {
                                  if(error){
@@ -141,13 +160,12 @@ module.exports = function(vorpal, options)
                                  else
                                  {
 
+                                     //Strip the backets and create an array of template params found(scriptTemplateArr)
                                      var scriptTemplateArr = text.split("{");
-                                     //console.log(scriptTemplateArr)
-                                     scriptTemplateArr.forEach(function (value, dataListJsonIndex)
+                                     scriptTemplateArr.forEach(function (stringValue, index)
                                      {
-                                         scriptTemplateArr[dataListJsonIndex] = value.substring(0, value.indexOf('}'))
+                                         scriptTemplateArr[index] = stringValue.substring(0, stringValue.indexOf('}'))
                                      });
-
                                      templateParam_arr = (Array.from(new Set(scriptTemplateArr))).filter(Boolean);
 
                                      setTimeout(function()
@@ -159,7 +177,8 @@ module.exports = function(vorpal, options)
 
                                          //console.log("DataCOnfigs",dataConfigs)
 
-                                         jsonParams = stateEngine.generateParamsJson(dataListJson[dataListJsonIndex],configStatus[1])
+                                         //These are the list row params, actual data being used
+                                         jsonParams = stateEngine.generateParamsJson(dataListJson[dataListJsonIndex],configStatus[1],templateParam_arr)
 
                                          dataListJsonIndex = dataListJsonIndex +1;
 
