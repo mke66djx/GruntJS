@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/dataModeCmds.js" afterPath="$PROJECT_DIR$/commands/dataModeCmds.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stateEng.js" afterPath="$PROJECT_DIR$/stateEng.js" />
     </list>
     <list id="5db18ffa-22dd-407a-acfe-db497d019cb3" name="Rejected commit: Default" comment="GruntJS: Began work on manual campaign printing" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,8 +40,8 @@
       <file leaf-file-name="dataModeCmds.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="105" column="7" lean-forward="true" selection-start-line="105" selection-start-column="7" selection-end-line="122" selection-end-column="13" />
+            <state relative-caret-position="477">
+              <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
               <folding>
                 <element signature="e#3348#7374#0" expanded="false" />
               </folding>
@@ -812,7 +810,7 @@
       <workItem from="1506398750865" duration="33843000" />
       <workItem from="1510553960301" duration="1990000" />
       <workItem from="1510726510684" duration="1260000" />
-      <workItem from="1517978472387" duration="13959000" />
+      <workItem from="1517978472387" duration="13984000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -919,11 +917,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518196132533</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="GruntJS: Made some core changes here">
+      <created>1518334863016</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1518334863016</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292425000" />
+    <option name="totallyTimeSpent" value="292450000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1042,7 +1047,8 @@
     <MESSAGE value="GruntJS: Further work on manPrint. Issues with printing files- synchronous functions need to be placed in waterfall along with the async functions." />
     <MESSAGE value="GruntJS: Began rework on most of the code to make it more robust" />
     <MESSAGE value="GruntJS: Roll back to fix issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Roll back to fix issues" />
+    <MESSAGE value="GruntJS: Made some core changes here" />
+    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Made some core changes here" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1332,8 +1338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="105" column="7" lean-forward="true" selection-start-line="105" selection-start-column="7" selection-end-line="122" selection-end-column="13" />
+        <state relative-caret-position="477">
+          <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
           <folding>
             <element signature="e#3348#7374#0" expanded="false" />
           </folding>
