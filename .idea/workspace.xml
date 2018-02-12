@@ -741,7 +741,7 @@
       <workItem from="1510553960301" duration="1990000" />
       <workItem from="1510726510684" duration="1260000" />
       <workItem from="1517978472387" duration="24712000" />
-      <workItem from="1518400937329" duration="5893000" />
+      <workItem from="1518400937329" duration="5905000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -876,11 +876,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518410085906</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="GruntJS: Added some missing directories again">
+      <created>1518410202279</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1518410202279</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309071000" />
+    <option name="totallyTimeSpent" value="309083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1001,7 +1008,8 @@
     <MESSAGE value="GruntJS: Roll back to fix issues" />
     <MESSAGE value="GruntJS: Made some core changes here" />
     <MESSAGE value="GruntJS: Added some missing directories" />
-    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Added some missing directories" />
+    <MESSAGE value="GruntJS: Added some missing directories again" />
+    <option name="LAST_COMMIT_MESSAGE" value="GruntJS: Added some missing directories again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
