@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="GruntJS: Added some missing directories">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/home/SOmething.txt" />
+    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5db18ffa-22dd-407a-acfe-db497d019cb3" name="Rejected commit: Default" comment="GruntJS: Began work on manual campaign printing" />
@@ -742,7 +741,7 @@
       <workItem from="1510553960301" duration="1990000" />
       <workItem from="1510726510684" duration="1260000" />
       <workItem from="1517978472387" duration="24712000" />
-      <workItem from="1518400937329" duration="5783000" />
+      <workItem from="1518400937329" duration="5893000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -870,11 +869,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518403220722</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="GruntJS: Added some missing directories">
+      <created>1518410085906</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1518410085906</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308961000" />
+    <option name="totallyTimeSpent" value="309071000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
