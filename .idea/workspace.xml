@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="">
+    <list default="true" id="885d0c56-413f-420f-88e8-8245f0fd3188" name="Default" comment="GruntJS: Made some core changes here">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/DupleX.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/DupleX_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/DupleX_V2.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/DupleX_V2.odt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/FourX.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/FourX_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/GenericX.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/LowRiseApts.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/LowRiseApts_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/MF_Letter_V2.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/OriginalTemplates/MF_Letter_V1.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/OriginalTemplates/MF_Letter_V2.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/OriginalTemplates/MF_Letter_V3.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/ThreeSingleFamilyUnits.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/TripleX.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/TripleX_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/TwoSingleFamilyUnits.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/scriptTemplates/Sacramento/TwoSingleFamilyUnits_LLC.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Chico/chico 2to4 units (1).xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/Apts @ Sac County 9+ Units.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/Sac2to8TestList.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/SacCounty2to8Units.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/SacFullNameListDuplexes.ods" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Stockton/Stockton2-4units.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Stockton/stockton5-100units.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/YubaCity/yuba city 2to4 units (2).xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/.~lock.Sac County 2-8 Units.xls#" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/.~lock.Sac2to8TestList.csv#" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/.~lock.Untitled 1.ods#" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work_spaces/data/standaloneLists/Sacramento/Sac2to8TestList.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work_spaces/data/tempDoc.docx" afterPath="$PROJECT_DIR$/work_spaces/data/tempDoc.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/dataModeCmds.js" afterPath="$PROJECT_DIR$/commands/dataModeCmds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stateEng.js" afterPath="$PROJECT_DIR$/stateEng.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json" afterPath="$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json" />
     </list>
     <list id="5db18ffa-22dd-407a-acfe-db497d019cb3" name="Rejected commit: Default" comment="GruntJS: Began work on manual campaign printing" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,21 +65,39 @@
       <file leaf-file-name="stateEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stateEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
+            <state relative-caret-position="1935">
+              <caret line="129" column="2" lean-forward="false" selection-start-line="129" selection-start-column="2" selection-end-line="129" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataModeCmds.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataModeCmds.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
-              <folding>
-                <element signature="e#3348#7374#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="388">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="command.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node_modules/vorpal/dist/command.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="718">
+              <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="csvToJSON.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/csvToJSON.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,8 +105,8 @@
       <file leaf-file-name="replaceTemps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -62,8 +115,8 @@
       <file leaf-file-name="Sacramento1.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="52" />
+            <state relative-caret-position="465">
+              <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -307,63 +360,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="work_spaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scriptTemplates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GruntJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GruntJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work_spaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataConfigs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sacramento" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GruntJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GruntJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -810,7 +815,8 @@
       <workItem from="1506398750865" duration="33843000" />
       <workItem from="1510553960301" duration="1990000" />
       <workItem from="1510726510684" duration="1260000" />
-      <workItem from="1517978472387" duration="13984000" />
+      <workItem from="1517978472387" duration="24712000" />
+      <workItem from="1518400937329" duration="2258000" />
     </task>
     <task id="LOCAL-00001" summary="GruntJS: Separated  mode commands into mode command modules">
       <created>1487721065937</created>
@@ -924,11 +930,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518334863016</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="GruntJS: Made some core changes here">
+      <created>1518334868762</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1518334868762</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292450000" />
+    <option name="totallyTimeSpent" value="305436000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -941,7 +954,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="24" width="1861" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -950,17 +963,17 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19975185" sideWeight="0.5023419" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977968" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977968" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18789144" sideWeight="0.3647541" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28085643" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2060606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20826447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977968" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962853" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1178,13 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vorpal/dist/command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3030">
-          <caret line="202" column="3" lean-forward="true" selection-start-line="202" selection-start-column="3" selection-end-line="202" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1214,13 +1220,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work_spaces/data/Apts9PUnits.csv" />
-    <entry file="file://$PROJECT_DIR$/Scripts/csvToJSON.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/csvtojson/dist/csvtojson.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -1314,35 +1313,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work_spaces/data/dataConfigs/Sacramento/Sacramento1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stateEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
+        <state relative-caret-position="1935">
+          <caret line="129" column="2" lean-forward="false" selection-start-line="129" selection-start-column="2" selection-end-line="129" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/csvToJSON.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/replaceTemps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/dataModeCmds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
-          <folding>
-            <element signature="e#3348#7374#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="388">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vorpal/dist/command.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

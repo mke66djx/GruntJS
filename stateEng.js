@@ -34,8 +34,17 @@ function changeWorkingDir(directory){
 }
 
 function appendToGlobalWorkDir(directory){
-    dir = path.join(working_dir, path.normalize(directory));
-    return dir;
+    try {
+        fileDir = path.join(working_dir, path.normalize(directory));
+        var stats = fs.statSync(fileDir);
+        return fileDir;
+    }
+    catch(err) {
+        console.log(err);
+        console.log("Failed in append global dir: " + directory)
+        return err;
+    }
+
 }
 
 function returnWorkingDir(){
@@ -125,7 +134,6 @@ var enterMode = function(mode) {
 var checkFile = function(file){
     return [checkDirectorySync(appendToGlobalWorkDir(file)),appendToGlobalWorkDir(file)];
 };
-
 
 //#################County Helper Functions#################
 var checkCounty = function(county,checkcb){

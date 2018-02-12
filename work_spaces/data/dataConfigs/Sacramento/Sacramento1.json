@@ -34,7 +34,7 @@
       "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx"
     },
 
-    "Person":
+    "full_name_person":
     {
       "Generic":"/scriptTemplates/Sacramento/GenericX.docx",
       "RES,DUPLEX": "/scriptTemplates/Sacramento/DupleX_V2.docx",
@@ -43,6 +43,17 @@
       "RES,LOW RISE APTS": "/scriptTemplates/Sacramento/LowRiseApts.docx",
       "RES,TWO SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/TwoSingleFamilyUnits.docx",
       "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx"
+    },
+
+    "partial_name_person":
+    {
+      "Generic":"/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,DUPLEX": "/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,FOURPLEX": "/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,THREE FAMILY TRIPLEX": "/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,LOW RISE APTS": "/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,TWO SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/GenericX.docx",
+      "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/GenericX.docx"
     }
 
   }
