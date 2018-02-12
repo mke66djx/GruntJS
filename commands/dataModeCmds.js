@@ -22,16 +22,32 @@ var scriptSelect = function(dataItem,dataConfigs)
 
     if((ownerFirst_name && !ownerLast_name) || (!ownerFirst_name && ownerLast_name))
     {
-        //Check if Corp
-        for(var i = 0; i < dataConfigs.Corp_KeyWords.length; i++)
+        //If first name exists, check if its a corp- if not corp, address by first name as usual
+        if(ownerFirst_name)
         {
-            if (ownerFirst_name.includes(dataConfigs.Corp_KeyWords[i]))
+            for(var i = 0; i < dataConfigs.Corp_KeyWords.length; i++)
+            {
+                if (ownerFirst_name.includes(dataConfigs.Corp_KeyWords[i]))
+                {
+                    return dataConfigs.ScriptTemplates.LLC[landUseString]
+                }
+            }
+
+            //If it has a number its likely an LLC,partnership etc..
+            if (hasNumber(ownerFirst_name))
             {
                 return dataConfigs.ScriptTemplates.LLC[landUseString]
             }
-        }
 
-        return dataConfigs.ScriptTemplates.partial_name_person[landUseString]
+            //Addrss by first name script
+            return dataConfigs.ScriptTemplates.full_name_person[landUseString]
+
+        }
+        else
+        {
+            //If no first name, use generic, do not want to address with last name(too proper)
+            return dataConfigs.ScriptTemplates.generic_person[landUseString]
+        }
 
     }
 
@@ -48,6 +64,9 @@ var scriptSelect = function(dataItem,dataConfigs)
 
 };
 
+function hasNumber(myString) {
+    return /\d/.test(myString);
+}
 
 module.exports = function(vorpal, options)
 {
@@ -57,13 +76,10 @@ module.exports = function(vorpal, options)
         .autocomplete(fsAutocomplete())
         .action(function(args, cb)
         {
-            console.log("continues")
             failFlag = 0;
             dataListstatus = [];
             configStatus = [];
-            console.log("Right before dataListstatus")
             dataListstatus = stateEngine.checkFile(args.dataList)
-            console.log("Right before config status")
             configStatus = stateEngine.checkFile(args.configFile)
 
             //Check if data and config exist
@@ -80,7 +96,6 @@ module.exports = function(vorpal, options)
                     var dataListJsonIndex = 0;
                     var dataConfigs = require(configStatus[1])
 
-                    console.log("After require")
                     dataListLen = dataListJson.length
 
                     //This function gets run dataListLen times, essentially # of rows in data list
@@ -95,7 +110,6 @@ module.exports = function(vorpal, options)
                         // Select script based on listing it. Ex; duplex, triplex, corporation classifications each have dif script
                         selectedScript = scriptSelect(dataListJson[dataListJsonIndex],dataConfigs)
 
-                        console.log("Right after selected script")
                         console.log(selectedScript)
                         //Check to see if script exists
                         selectecScriptPath = stateEngine.checkFile(selectedScript)
@@ -145,8 +159,8 @@ module.exports = function(vorpal, options)
 
                                         setTimeout(function()
                                         {
-                                            //print.printSingleFile(tempPdf);
-                                            console.log("Printing jack shit..")
+                                            print.printSingleFile(tempPdf);
+                                            //console.log("Printing jack shit..")
                                         },2000)
 
                                         if (dataListLen >0){ runJob(dataListLen);}

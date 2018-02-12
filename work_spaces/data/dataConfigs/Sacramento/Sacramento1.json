@@ -45,7 +45,7 @@
       "RES,THREE SINGLE FAMILY UNITS": "/scriptTemplates/Sacramento/ThreeSingleFamilyUnits_LLC.docx"
     },
 
-    "partial_name_person":
+    "generic_person":
     {
       "Generic":"/scriptTemplates/Sacramento/GenericX.docx",
       "RES,DUPLEX": "/scriptTemplates/Sacramento/GenericX.docx",
